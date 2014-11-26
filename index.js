@@ -3,13 +3,13 @@
 var express = require('express'),
 app = express(),
 request = require('request'),
-c = require('cheerio');
+c = require('cheerio'),
+serveStatic = require('serve-static');
 
 
 var getSite = function(cb) {
 	request('http://abc.net.au/news', function (error, response, body) {
 	  if (!error && response.statusCode == 200) {
-	    // console.log(body) // Print the google web page.
 	    cb(body);
 	  }
 	})
@@ -23,12 +23,14 @@ var getTitles = function(arr, $) {
 	return titles;
 }
 
+app.use(serveStatic('public'));
+
 app.get('/', function (req, res) {
 	getSite(function(body){
 		$ = c.load(body);
 		var headings = $('body').find('.module-body h3');
 		var titles = getTitles(headings, $);
-		res.json(titles);
+		res.json({titles: titles});
 	});
 });
 
