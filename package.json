@@ -1,0 +1,31 @@
+{
+  "name": "pebble-news",
+  "version": "1.0.0",
+  "description": "Pebble app to scrape and output news headlines",
+  "main": "index.js",
+  "scripts": {
+    "test": "test"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/tamarasaurus/pebble-news.git"
+  },
+  "keywords": [
+    "pebble",
+    "news",
+    "scraper"
+  ],
+  "author": "Tamara Chahine",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/tamarasaurus/pebble-news/issues"
+  },
+  "homepage": "https://github.com/tamarasaurus/pebble-news",
+  "devDependencies": {
+    "express": "^4.10.4",
+    "request": "^2.48.0"
+  },
+  "dependencies": {
+    "cheerio": "^0.18.0"
+  }
+}
